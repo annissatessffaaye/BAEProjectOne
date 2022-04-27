@@ -1,4 +1,4 @@
-package com.qa.baeprojectone.Domain;
+package com.qa.baeprojectone.domain;
 
 import java.util.Objects;
 
