@@ -69,11 +69,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-                + ",phoneNumber=" + phoneNumber +
-                ", getId()=" + getId() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
-                + ", getUsername()=" + getUsername() + "getPhoneNumber()=" + getPhoneNumber() +
-                ",getAddress()=" + getAddress() +
+        return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username 
+        		+ ",phoneNumber=" + phoneNumber + ",address=" + address + ", getId()=" + getId() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
+                + ", getUsername()=" + getUsername() + "getPhoneNumber()=" + getPhoneNumber() + ",getAddress()=" + getAddress() +
                 ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
                 + ", toString()=" + super.toString() + "]";
     }

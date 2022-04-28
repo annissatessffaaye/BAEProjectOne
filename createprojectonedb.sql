@@ -12,8 +12,8 @@ CREATE TABLE user (
     
 use baeprojectonedb;
 
-INSERT INTO user (firstname, last_name, username) VALUES ("Jim", "Jones", "jjones1");
-INSERT INTO user (firstname, last_name, username) VALUES ("Jim", "Smith", "tsmith1");
+INSERT INTO user (firstname, last_name, username, phone_number, address) VALUES ("Jim1", "Jones1", "jjones11", "123451", "123st1");
+INSERT INTO user (firstname, last_name, username, phone_number, address) VALUES ("Jim1", "Smith1", "tsmith11", "12341", "123st1");
 
 ---------------------------------------------------------
 
