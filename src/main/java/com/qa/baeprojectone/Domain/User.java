@@ -42,16 +42,16 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String username, String phoneNumber) {
+    public User(String firstName, String lastName, String username, String phoneNumber, String address) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.phoneNumber = phoneNumber;
-        // this.address= address;
+        this.address= address;
     }
 
-    public User(long id, String firstName, String lastName, String username, String phoneNumber) {
+    public User(long id, String firstName, String lastName, String username, String phoneNumber, String address) {
         super();
         this.id = id;
         this.firstName = firstName;

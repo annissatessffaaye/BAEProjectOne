@@ -4,7 +4,7 @@ CREATE TABLE user (
 	firstname VARCHAR(255) NOT NULL,
 	last_name VARCHAR(255) NOT NULL,
 	username VARCHAR(255) UNIQUE NOT NULL,
-	--phone_number VARCHAR(255) UNIQUE NOT NULL,
-	--address VARCHAR(255) NOT NULL,
+	phone_number VARCHAR(255) UNIQUE NOT NULL,
+	address VARCHAR(255) NOT NULL,
 	PRIMARY KEY (ID)
 );
