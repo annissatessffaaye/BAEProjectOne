@@ -3,6 +3,7 @@ package com.qa.baeprojectone.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+//import org.springframework.web.bind.annotation.PathVariable;
 
 import com.qa.baeprojectone.domain.User;
 import com.qa.baeprojectone.repo.UserRepo;
@@ -31,4 +32,12 @@ public class UserService {
         return repo.saveAndFlush(user);
     }
 
+    // Update a user
+    public User update(long id, User user) {
+        User existing = repo.findById(id).get(); // Get the EXISTING user
+        existing.setFirstName(user.getFirstName()); // Change EXISTING user's first name to new user's first name.
+        existing.setLastName(user.getLastName()); // Change EXISTING user's last name to new user's last name.
+        existing.setUsername(user.getUsername()); // Change EXISTING user's username to new user's username.
+        return repo.saveAndFlush(existing);
+    }
 }
