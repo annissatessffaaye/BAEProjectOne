@@ -34,26 +34,26 @@ public class UserController {
     }
 
     // Post
-    @PostMapping("/create") // localhost:12000/create
+    @PostMapping("/create") // localhost:8080/create
     public ResponseEntity<User> create(@RequestBody User user) {
         return new ResponseEntity<User>(service.create(user), HttpStatus.CREATED);
     }
 
     // Put
-    @PutMapping("/update/{id}") // localhost:12000/update/id
+    @PutMapping("/update/{id}") // localhost:8080/update/id
     public ResponseEntity<User> update(@PathVariable long id, @RequestBody User user) {
         return new ResponseEntity<User>(service.update(id, user), HttpStatus.ACCEPTED);
     }
 
     // Delete
-    @DeleteMapping("/delete/{id}") // localhost:12000/delete/id
+    @DeleteMapping("/delete/{id}") // localhost:8080/delete/id
     public ResponseEntity<?> delete(@PathVariable long id) {
         return (service.delete(id)) ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
                 : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     // Delete without Ternary If
-    // @DeleteMapping("/delete/{id}") //localhost:12000/delete/id
+    // @DeleteMapping("/delete/{id}") //localhost:8080/delete/id
     // public ResponseEntity<?> delete(@PathVariable long id) {
     // if (service.delete(id) == true) {
     // return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -62,3 +62,4 @@ public class UserController {
     // }
     // }
 }
+

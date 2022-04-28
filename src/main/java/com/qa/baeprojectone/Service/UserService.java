@@ -1,11 +1,9 @@
 package com.qa.baeprojectone.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-//import org.springframework.web.bind.annotation.PathVariable;
-
 import com.qa.baeprojectone.domain.User;
+import com.qa.baeprojectone.exceptions.UserNotFoundExceptionWithID;
 import com.qa.baeprojectone.repo.UserRepo;
 
 @Service
@@ -17,15 +15,22 @@ public class UserService {
         this.repo = repo;
     }
 
-    // Get By ID (get one User)
-    public User getById(long id) {
-        return repo.findById(id).get(); // .get() will either get the User (if exists) OR throw NoSuchElementException
-
-    }
-
     // Get ALL users
     public List<User> getAll() {
         return repo.findAll();
+    }
+
+    // Get By ID (get one User)
+    public User getById(long id) {
+        // return repo.findById(id).get(); //.get() will either get the User (if exists)
+        // OR throw NoSuchElementException
+        return repo.findById(id).orElseThrow(() -> new UserNotFoundExceptionWithID(id));
+        // return repo.findById(id).orElseThrow(UserNotFoundException::new);
+    }
+
+    // Get By Username (get one User)
+    public User getByUsername(String username) {
+        return repo.findByUsername(username).get();
     }
 
     // Create a new user
@@ -39,10 +44,9 @@ public class UserService {
         existing.setFirstName(user.getFirstName()); // Change EXISTING user's first name to new user's first name.
         existing.setLastName(user.getLastName()); // Change EXISTING user's last name to new user's last name.
         existing.setUsername(user.getUsername()); // Change EXISTING user's username to new user's username.
-        existing.setPhoneNumber(user.getPhoneNumber()); // Change EXISTING user's phone number to new user's phone
-                                                        // number.
-        existing.setAddress(user.getAddress()); // Change EXISTING user's phone number to new user's phone number.
-
+        existing.setPhoneNumber(user.getPhoneNumber()); // Change EXISTING user's last name to new user's last name.
+        existing.setAddress(user.getAddress()); // Change EXISTING user's username to new user's username.
+        
         return repo.saveAndFlush(existing);
     }
 
