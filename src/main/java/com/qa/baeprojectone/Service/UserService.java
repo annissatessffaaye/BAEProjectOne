@@ -20,6 +20,7 @@ public class UserService {
     // Get By ID (get one User)
     public User getById(long id) {
         return repo.findById(id).get(); // .get() will either get the User (if exists) OR throw NoSuchElementException
+
     }
 
     // Get ALL users
@@ -38,6 +39,16 @@ public class UserService {
         existing.setFirstName(user.getFirstName()); // Change EXISTING user's first name to new user's first name.
         existing.setLastName(user.getLastName()); // Change EXISTING user's last name to new user's last name.
         existing.setUsername(user.getUsername()); // Change EXISTING user's username to new user's username.
+        existing.setPhoneNumber(user.getPhoneNumber()); // Change EXISTING user's phone number to new user's phone
+                                                        // number.
+        existing.setAddress(user.getAddress()); // Change EXISTING user's phone number to new user's phone number.
+
         return repo.saveAndFlush(existing);
+    }
+
+    // Delete a user
+    public boolean delete(long id) {
+        repo.deleteById(id);
+        return !repo.existsById(id);
     }
 }

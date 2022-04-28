@@ -11,30 +11,54 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // This makews the column a primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // This makes the column auto-increment
     private long id;
 
     // Creates a column called "first_name"
-    @Column(name = "firstname")
+    // This column CAN NOT be null
+    @Column(name = "firstname", nullable = false)
     private String firstName;
 
     // Creates a column called "last_name"
+    // This colun CAN NOT be null
+    @Column(nullable = false)
     private String lastName;
 
     // Creates a column called "username"
-    @Column(nullable = false)
+    @Column(unique = true)
     private String username;
+
+    // Creates a column called "phone_number"
+    @Column(unique = true)
+    private String phoneNumber;
+
+    // Creates a column called "last_name"
+    // This colun CAN NOT be null
+    @Column(nullable = false)
+    private String address;
 
     // Default Constructor
     public User() {
     }
 
-    public User(String firstName, String lastName, String username) {
+    public User(String firstName, String lastName, String username, String phoneNumber) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
+        this.phoneNumber = phoneNumber;
+        // this.address= address;
+    }
+
+    public User(long id, String firstName, String lastName, String username, String phoneNumber) {
+        super();
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     // Used for reading/selecting /(and testing)
@@ -45,9 +69,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-                + ", getId()=" + getId() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
-                + ", getUsername()=" + getUsername() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+        return "Users [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
+                + ",phoneNumber=" + phoneNumber +
+                ", getId()=" + getId() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
+                + ", getUsername()=" + getUsername() + "getPhoneNumber()=" + getPhoneNumber() +
+                ",getAddress()=" + getAddress() +
+                ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
                 + ", toString()=" + super.toString() + "]";
     }
 
@@ -79,9 +106,25 @@ public class User {
         this.username = username;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, id, lastName, username);
+        return Objects.hash(firstName, id, lastName, username, phoneNumber, address);
     }
 
     @Override
@@ -94,7 +137,10 @@ public class User {
             return false;
         User other = (User) obj;
         return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName)
-                && Objects.equals(username, other.username);
+                && Objects.equals(username, other.username)
+                && Objects.equals(phoneNumber, other.phoneNumber)
+                && Objects.equals(address, other.address);
     }
 
 }
+
