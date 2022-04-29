@@ -89,7 +89,7 @@
             }).catch(err => console.log(err));
     }
 
-    const getKittenById = () => {
+    const getUserById = () => {
         axios.get(`${baseURL}/getUser/${userId.value}`)
             .then(res => {
                 const user = res.data;
