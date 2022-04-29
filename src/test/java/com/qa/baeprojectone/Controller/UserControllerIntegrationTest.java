@@ -79,7 +79,7 @@ public class UserControllerIntegrationTest {
 	@Test
 	public void updateTest() throws Exception {
 		User entry = new User("Jim", "Jones", "jjones1", "12346", "123st");
-		User result = new User(1L, "Jim", "Jones", "jjones1");
+		User result = new User(1L, "Jim", "Jones", "jjones1", "12346", "123st");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		String resultAsJSON = this.mapper.writeValueAsString(result);
 		
