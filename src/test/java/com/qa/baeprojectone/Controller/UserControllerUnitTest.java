@@ -34,7 +34,7 @@ public class UserControllerUnitTest {
 
   @Test
   void createTest() throws Exception {
-      User entry = new User("Tom", "Jones", "tjones1", "12346", "123st");
+      User entry = new User("Tom", "Jones", "tjones1","12345","123st");
       String entryAsJSON = this.mapper.writeValueAsString(entry);
 
       Mockito.when(this.service.create(entry)).thenReturn(entry);
@@ -48,7 +48,7 @@ public class UserControllerUnitTest {
 
   @Test
   public void getAllTest() throws Exception {
-      User entry = new User("Tom", "Jones", "tjones1", "12346", "123st");
+      User entry = new User("Tom", "Jones", "tjones1", "12345", "123st");
       List<User> output = new ArrayList<>();
       output.add(entry);
       String outputAsJSON = this.mapper.writeValueAsString(output);

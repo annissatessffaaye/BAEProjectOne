@@ -38,10 +38,10 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	public void createTest() throws Exception {
-		User entry = new User("Jim", "Jones", "jjones1", "12346", "123st");
+		User entry = new User("Jim", "Jones", "jjones1", "12346","123st");
 		String entryAsJSON = mapper.writeValueAsString(entry);
 
-		User result = new User(2L, "Jim", "Jones", "jjones1", "12346", "123st");
+		User result = new User(2L, "Jim", "Jones", "jjones1","12346","123st");
 		String resultAsJSON = mapper.writeValueAsString(result);
 
 		mvc.perform(post("/user/create")
@@ -54,7 +54,7 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	public void getAllTest() throws Exception {
-		User user = new User(1L, "Tom", "Jones", "tjones1", "12346", "123st");
+		User user = new User(1L, "Tom", "Jones", "tjones1", "12346","123st");
 		List<User> output = new ArrayList<>();
 		output.add(user);
 		String outputAsJSON = mapper.writeValueAsString(output);
@@ -67,7 +67,7 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	public void getByIdTest() throws Exception {
-		User entry = new User(1L, "Tom", "Jones", "tjones1", "12346", "123st");
+		User entry = new User(1L, "Tom", "Jones", "tjones1", "12346","123st");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		
 		mvc.perform(get("/user/getById/1")
@@ -78,8 +78,8 @@ public class UserControllerIntegrationTest {
 	
 	@Test
 	public void updateTest() throws Exception {
-		User entry = new User("Jim", "Jones", "jjones1", "12346", "123st");
-		User result = new User(1L, "Jim", "Jones", "jjones1", "12346", "123st");
+		User entry = new User("Jim", "Jones", "jjones1", "12346","123st");
+		User result = new User(1L, "Jim", "Jones", "jjones1", "12345","123st");
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 		String resultAsJSON = this.mapper.writeValueAsString(result);
 		
